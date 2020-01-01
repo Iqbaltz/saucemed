@@ -1,0 +1,188 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* a */
+
+a{
+    color: #343a40;
+}
+
+a:hover{
+    color: rgb(19, 19, 19);
+    text-decoration: none;
+}
+
+/* items */
+div.item{
+    height: 200px;
+    margin: 5px 5px ;
+    position: relative;
+    overflow: hidden;
+    background-color: black;
+    float: left;
+}
+div.item * {
+    box-sizing: border-box;
+  }
+
+div.item:hover #img {
+    opacity: 0.6;
+    cursor: zoom-in;
+}
+
+div.item * {
+    transition: all .35s ease-in-out;
+}
+  
+  
+#img{
+    height: 100%;
+    object-fit: cover;
+    min-width: 160px;
+    vertical-align: top;
+}
+
+.detil {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 0 0 5px 5px;
+    width: 100%;
+    background-color: rgba(126, 126, 126, 0.5);
+}
+
+.detil img{
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+.detil p{
+    color: azure;
+    display: inline;
+}
+
+.detil a i{
+    color: rgb(197, 197, 197);
+    float: right;
+    margin: 5px 5px 0 0;
+    transition: all ease-in-out 0.1s;
+}
+
+.detil a i:hover{
+    color: rgb(255, 255, 255);
+}
+
+
+div.item .detil{
+    opacity: 0;
+}
+
+div.item:hover .detil{
+    opacity: 1;
+}
+
+div.modal-content{
+    background: none;
+    border: none;
+    text-align: center;
+}
+
+div.modal-body img{
+    min-height: 300px;
+    max-height: 340px;
+    transform: scale(1.5);
+}
+
+
+/* login/signup */
+.logos{
+    transition-property: transform, background ;
+    transition-duration: 1s, 0.5s;
+    border-radius: 50%;
+}
+.logos:hover{
+    transform: rotate(360deg) scale(0.7);
+    background: lightgray;
+    
+}
+
+.form-control{
+    font-size: 1.2em;
+}
+
+.lbl{
+    font-family: "Maven pro", sans-serif;
+    font-weight: 100;
+    font-size: 1.1em
+}
+button.lbl{
+    font-family: "Maven pro", sans-serif;
+    font-weight: 100;
+    font-size: 1.5em;
+    color: white;
+    background-color: #343a40;
+    padding: 15px 80px;
+    border-radius: 15px;
+    border: 0;
+    outline: none;
+    box-shadow: 0 6px #101011;
+    display: block;
+    position: relative;
+    margin: 0 auto;
+}
+button.lbl:hover{
+    box-shadow: 0 4px #101011;
+    transform: translateY(2px);
+}
+button.lbl:active{
+    box-shadow: none;
+    transform: translateY(6px);
+}
+
+/* Footer section */
+footer a{
+    text-decoration: none;
+    opacity: 0.75;
+    color: #fff;
+}
+
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #fff;
+    padding: 20px 0;
+}
+
+footer ul{
+    display: flex;
+}
+
+footer ul li{
+    margin-left: 16px;
+    list-style: none;
+}
+
+footer p{
+    text-transform: uppercase;
+    font-size: 14px;
+    opacity: 0.6;
+    align-self: center;
+}
+
+@media (max-width: 1100px){
+    footer{
+        flex-direction: column;
+    }
+    footer p{
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    footer ul li{
+        margin: 0 8px;
+    }
+}

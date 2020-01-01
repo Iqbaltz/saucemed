@@ -1,0 +1,83 @@
+<%- include('../partials/header') %>
+
+<%- include('../partials/navbar') %>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-10">
+      <h1 class="display-3 pt-5 mt-5 text-center"><%=post.name%></h1>
+          <div class="card mt-5 mb-5">
+              <img src="<%=post.images%>" class="card-img-top" alt="...">
+              <div class="card-body">
+                <p class="card-text"><%=post.name%></p>
+                <p class="card-text"><small class="text-muted"><%=post.createdAt.toUTCString().split('GMT')[0]%></small></p>
+                <p class="card-text"><small class="text-muted"><i></i></small></p>
+                
+                <% if(currentUser){ %>
+                  <%  if(currentUser.id === post.user_id){ %>
+                <a href="/post/<%=post.id%>/edit" class="btn btn-warning">Edit</a>
+                <form id="delete-form" action="/post/<%= post.id %>?_method=DELETE" method="POST">
+                  <button class="btn btn-xs btn-danger">Delete</button>
+                </form>
+                 <%}%>
+                <%}%>
+              </div>
+            </div>
+
+            <section id="comments" class="mb-5">
+              <h3 class="mb-4 text-secondary">Comments</h3>
+              <div class="media mb-4">
+                <img src="https://www.biography.com/.image/t_share/MTY2MzU3Nzk2OTM2MjMwNTkx/elon_musk_royal_society.jpg" class="rounded-circle mr-3" style="width: 64px; height: 64px; object-fit: cover;" alt="...">
+                <div class="media-body">
+                  <h5 class="mt-0">Elon Musk</h5>
+                  All You Do Is Remarkable!
+                </div>
+              </div>
+
+                <% for(i=0;i < komentar.length;i++){ %>
+                <div class="media mb-4">
+                  <img src="<%= komentar[i].User.profile_pict %>" class="rounded-circle mr-3" style="width: 64px; height: 64px; object-fit: cover;" alt="...">
+                  <div class="media-body">
+                    <h5 class="mt-0"><%= komentar[i].User.username %></h5>
+                    <% if(currentUser){ %>
+                      <%  if(currentUser.id === komentar[i].user_id){ %>
+                      <span class="float-right">
+                        <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                        <div class="dropdown-menu">
+                          <form id="delete-form" action="/post/<%= post.id %>/comments/<%= komentar[i].id %>?_method=DELETE" method="POST">
+                            <button class="dropdown-item">Delete</button>
+                          </form>
+                          </div>
+                      </span>
+                      <%}%>
+                  <%}%>
+                    <%= komentar[i].comment %>
+                  </div>
+                </div>
+                <% } %>
+
+               <!-- kalo ada user muncul formnya, kalau tidak hilang -->
+               <% if(currentUser){ %>
+                <!-- formnya -->
+                <form action="/post/<%=post.id%>/comments" method="POST" class="mb-5 mt-5">
+                  <div class="row align-content-center">
+                    <div class="col-8">
+                      <input type="text" name="comment" class="form-control" placeholder="add comment..." required>
+                    </div>
+                    <div class="col">
+                      <button type="submit" class="btn btn-dark px-4 py-2">Send</button>
+                    </div>
+                    <div class="col"></div>
+                  </div>
+                </form>
+              <% } %>
+
+            </section>
+           
+    </div>
+  </div>
+</div>
+
+
+
+<%- include('../partials/footer') %>

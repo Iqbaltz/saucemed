@@ -16,14 +16,13 @@ module.exports = function(sequelize, DataTypes) {
                key: 'id', // 'id' refers to column name in user table
             }
          }
-        },{
-            classMethods: {
-                associate: function(models) {
-                  Blog.belongsTo(models.User);
-                }
-         }
-        
-    });
+        });
+
+        Post.associate = (db) => {
+            Post.belongsTo(db.User, {foreignKey: 'user_id'})
+            Post.hasMany(db.Comment, {foreignKey: 'post_id'})
+            Post.hasMany(db.Like, {foreignKey: 'post_id'})
+        }
 
     return Post;
 }

@@ -4,6 +4,9 @@
     box-sizing: border-box;
 }
 
+body{
+    overflow-x: hidden;
+}
 
 /* a */
 
@@ -16,8 +19,22 @@ a:hover{
     text-decoration: none;
 }
 
+/* jumbotron */
+
+
+.jumbotron{
+    background-image: url(../images/sky1.jpg);
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: overlay;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    text-shadow: 2px 4px 8px  rgba(255, 255, 255, 0.5);
+}
+
 /* items */
-div.item{
+.item{
     height: 200px;
     margin: 5px 5px ;
     position: relative;
@@ -28,6 +45,7 @@ div.item{
 div.item * {
     box-sizing: border-box;
   }
+
 
 div.item:hover #img {
     opacity: 0.6;
@@ -53,6 +71,7 @@ div.item * {
     padding: 0 0 5px 5px;
     width: 100%;
     background-color: rgba(126, 126, 126, 0.5);
+    opacity: 0;
 }
 
 .detil img{
@@ -77,13 +96,31 @@ div.item * {
 }
 
 
-div.item .detil{
-    opacity: 0;
-}
-
 div.item:hover .detil{
     opacity: 1;
 }
+
+@media(max-width: 800px){
+    .item{
+        width: 100%;
+        min-height: 400px;
+        margin-bottom: 20px;
+    }
+    .item img{
+        width: 100%;
+        height: 100%;
+    }
+    .detil{
+        opacity: 1;
+    }
+    .detil img{
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+    }
+}
+
+/* modal */
 
 div.modal-content{
     background: none;
@@ -98,6 +135,8 @@ div.modal-body img{
 }
 
 
+
+
 /* login/signup */
 .logos{
     transition-property: transform, background ;
@@ -107,7 +146,6 @@ div.modal-body img{
 .logos:hover{
     transform: rotate(360deg) scale(0.7);
     background: lightgray;
-    
 }
 
 .form-control{
@@ -129,18 +167,25 @@ button.lbl{
     border-radius: 15px;
     border: 0;
     outline: none;
-    box-shadow: 0 6px #101011;
     display: block;
     position: relative;
     margin: 0 auto;
 }
 button.lbl:hover{
-    box-shadow: 0 4px #101011;
-    transform: translateY(2px);
+    background-color: #282b2e;
 }
 button.lbl:active{
-    box-shadow: none;
-    transform: translateY(6px);
+    background-color: #343a40;
+}
+
+/* show item */
+.card-img-top.img-post{
+    width: 100%;
+    border-top-left-radius: calc(.25rem - 1px);
+    border-top-right-radius: calc(.25rem - 1px);
+    height: 613px;
+    object-fit: contain;
+    background-color: rgb(240, 240, 240);
 }
 
 /* Footer section */
@@ -185,4 +230,52 @@ footer p{
     footer ul li{
         margin: 0 8px;
     }
+}
+
+
+
+/* Extras*/
+
+/* img user di page profile */
+
+.img-user{
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* body bg */
+
+#body-addpost, #body-register,#body-login{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: overlay;
+    color: white;
+}
+
+/* body di addpost page*/
+
+#body-addpost{
+    background-image: url(../images/sky5.jpg);
+    height: 100%;
+}
+
+/* body di register page */
+#body-register{
+    background-image: url(../images/sky2.jpg);
+}
+
+/* body di login page */
+#body-login{
+    background-image: url(../images/sky6.jpg);
+}
+
+/* img-about di about page */
+.img-about{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    object-position: top;
 }

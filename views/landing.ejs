@@ -3,12 +3,14 @@
 <%- include('partials/navbar') %>
 
 <section class="hero mt-5">
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-          <h1 class="display-4">Welcome :)</h1>
-          <p class="lead">This is my first Galllery app using mysql database.</p>
-        </div>
-      </div>
+    <div class="jumbotron text-center" >
+        <h1 class="display-4">Welcome to Votolink :)</h1>
+        <hr width="50%" class="my-4 mx-auto">
+        <blockquote class="blockquote lead">
+          <p class="mb-0">"Why upload photos if you can copy from other links."</p>
+          <footer class="blockquote-footer text-light">Leonardo Da Vinci <cite title="Source Title">~ 2020</cite></footer>
+        </blockquote>
+    </div>
 </section>
 
 <section class="items">
@@ -19,8 +21,10 @@
             <div class="item">
               <img src="<%=post[i].images%>" data-toggle="modal" data-target="#myModal<%=i%>" id="img" class="img-fluid" alt="...">
                 <div class="detil">
-                  <img src="<%=post[i].User.profile_pict%>" class="rounded-circle" alt="">
-                  <p><%=post[i].User.username%></p>
+                  <a href="profile/<%=post[i].User.id%>">
+                    <img src="<%=post[i].User.profile_pict%>" class="rounded-circle" alt="">
+                    <p><%=post[i].User.username%></p>
+                  </a>
                   <a href="/post/<%=post[i].id%>"><i class="fas fa-external-link-alt"></i></a>
                 </div>
             </div>

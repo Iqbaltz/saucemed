@@ -1,47 +1,48 @@
 <%- include('partials/header') %>
 
-
-<div class="container">
-  <% if(error && error.length > 0){ %>
-      <div class="alert alert-danger" role="alert">
-          <%= error %>
-      </div>
-  <% } %>
-  <% if(success && success.length > 0){ %>
-      <div class="alert alert-success" role="alert">
-          <%= success %>
-      </div>
-  <% } %>
-</div>
-
-    <div class="container">
-            <div class="row justify-content-center mt-2">
-              <div class="col-2">
-                <a href="/"><img src="images/piedv2.png" alt="" class="logos img-fluid"></a>
+<div id="body-login">
+  <div class="container">
+    <% if(error && error.length > 0){ %>
+        <div class="alert alert-danger" role="alert">
+            <%= error %>
+        </div>
+    <% } %>
+    <% if(success && success.length > 0){ %>
+        <div class="alert alert-success" role="alert">
+            <%= success %>
+          </div>
+          </div>
+    <% } %>
+  
+      <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-2 mt-4">
+                  <a href="/"><img src="images/VLI.png" alt="" class="logos img-fluid"></a>
+                </div>
               </div>
-            </div>
-            <h1 class="display-5 text-center">LOGIN</h1>
-            <p class="text-center">Welcome Back.</p>
-    
-            <div class="row justify-content-center mt-4 mb-4">
-              <div class="col-10 col-md-6">
-                <form action="/login" class="login" method="POST">
-                    <div class="form-group">
-                      <label for="email-input" class="lbl">Email</label>
-                      <input type="email" name="email" placeholder="E-mail" class="form-control shadow-none" id="email-input" aria-describedby="emailHelp" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="password-input" class="lbl">Password</label>
-                      <input type="password" name="password" placeholder="Password" class="form-control shadow-none" id="password-input" required>
-                      <small id="emailHelp" class="form-text text-muted">Forgot Password? <a href="#" class="text-info">don't click here.</a></small>
-                    </div>
-                    <button type="submit" class="lbl">Login</button>
-                  </form>
-            </div>
-            </div>
-            <p class="text-center"> Don't have an account? <a href="/signup" class="text-info">Sign Up</a></p>
+              <h1 class="display-5 text-center">LOGIN</h1>
+              <p class="text-center">Welcome Back!</p>
+      
+              <div class="row justify-content-center mt-4 mb-4">
+                <div class="col-10 col-md-6">
+                  <form action="/login" class="login" method="POST">
+                      <div class="form-group">
+                        <label for="email-input" class="lbl">Email</label>
+                        <input type="email" name="email" placeholder="E-mail" class="form-control shadow-none" id="email-input" aria-describedby="emailHelp" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="password-input" class="lbl">Password</label>
+                        <input type="password" name="password" placeholder="Password" class="form-control shadow-none" id="password-input" required>
+                        <small id="emailHelp" class="form-text text-white">Forgot Password? <a href="#" class="text-info">don't click here.</a></small>
+                      </div>
+                      <button type="submit" class="lbl my-3">Login</button>
+                    </form>
+              </div>
+              </div>
+              <p class="text-center mb-5"> Don't have an account? <a href="/register" class="text-info">Register here. It's free!</a></p>
+      </div>
     </div>
-    
-
-
-<%- include('partials/footer') %>
+      
+      
+      
+      <%- include('partials/footer') %>

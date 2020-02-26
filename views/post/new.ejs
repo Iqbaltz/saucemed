@@ -2,20 +2,22 @@
 
 <%- include('../partials/navbar') %>
 
-<div class="row justify-content-center mt-4 mb-4">
-<div class="col-10 col-md-6">
-  <h1 class="display-3 mt-5 mb-3 text-center">Add a Blog</h1>
-  <form action="/post" method="POST">
-    <div class="form-group">
-      <label for="image-input" class="lbl">Image URL</label>
-      <input name="image" type="text" class="form-control shadow-none" placeholder="url..." id="image-input" required>
-    </div>
-    <div class="form-group">
-      <label for="name-input" class="lbl">Name</label>
-      <input name="name" type="text" placeholder="title..." class="form-control shadow-none" id="name-input" required>
-    </div>
-    <button type="submit" class="lbl">Upload</button>
-  </form>
-</div>
+<div id="body-addpost">
+  <div class="row justify-content-center">
+  <div class="col-10 col-md-6">
+    <h1 class="display-3 pt-5 mt-5 mb-3 text-center">Add a Post</h1>
+    <form action="/post" method="POST">
+      <div class="form-group">
+        <label for="image-input" class="lbl">Image URL</label>
+        <input name="image" type="text" class="form-control shadow-none" placeholder="url..." id="image-input" required>
+      </div>
+      <div class="form-group">
+        <label for="name-input" class="lbl">Name</label>
+        <input name="name" type="text" placeholder="title..." class="form-control shadow-none" id="name-input" required>
+      </div>
+      <button type="submit" class="lbl my-5">Upload</button>
+    </form>
+  </div>
+  </div>
 </div>
 <%- include('../partials/footer') %>

@@ -4,7 +4,7 @@ var db = require("../models");
 var middleware = require("../config/middleware");
 
 // post route for post new image
-router.post("/", function(req, res) {
+router.post("/",middleware.isLoggedIn, function(req, res) {
     db.Post.create({
         images: req.body.image,
         name: req.body.name, 
@@ -17,7 +17,7 @@ router.post("/", function(req, res) {
 })
 
 // new route ,form for add new post
-router.get("/new", function(req, res) {
+router.get("/new", middleware.isLoggedIn, function(req, res) {
     res.render("post/new")
 })
 
@@ -26,21 +26,17 @@ router.get("/:id", function(req,res) {
     db.Post.findOne({
         include: [
           {model: db.User},
-          {model: db.Comment, 
-            include : [{model: db.User}]
-          }
-            ],
+          {model: db.Comment,            
+          include : [{model: db.User}]
+          }],
+          order: [[{model: db.Comment},'createdAt', 'ASC']],
         where: {
           id: req.params.id
         },
       }).then(function(post_ini) {
           var post = post_ini.dataValues
           var comments = post.Comments
-          var komentar = [];
-          for(i=0; i < post.Comments.length; i++){
-            komentar.push(comments[i].dataValues)
-          }
-          res.render("post/show",{post:post, komentar: komentar})
+          res.render("post/show",{post:post, komentar: comments})
       }).catch(function(err){
         console.log(err)
         res.redirect('/')

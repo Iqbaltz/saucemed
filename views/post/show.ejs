@@ -2,11 +2,10 @@
 
 <%- include('../partials/navbar') %>
 
-<div class="container">
+<div class="container body-show">
   <div class="row justify-content-center">
     <div class="col-12 col-lg-10">
-      <h1 class="display-3 pt-5 mt-5 text-center"><%=post.name%></h1>
-          <div class="card mt-5 mb-5">
+          <div class="card card-show mb-5">
               <img src="<%=post.images%>" class="card-img-top img-post" alt="...">
               <div class="card-body">
                 <p class="card-text"><%=post.name%></p>
@@ -22,16 +21,16 @@
                 <a href="/post/<%=post.id%>/edit" class="btn btn-warning text-white d-inline mr-2">Edit</a>
                 
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalCenter">
                   Delete
                 </button>
 
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                       <div class="modal-header bg-white">
-                        <h5 class="modal-title" id="exampleModalCenterTitle">Are you sure want to delete this post?</h5>
+                        <h5 class="modal-title" id="ModalCenterTitle">Are you sure want to delete this post?</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
@@ -52,9 +51,9 @@
             </div>
 
             <section id="comments" class="mb-5">
+              <% if(currentUser){%>
               <h3 class="mb-4 text-secondary">Comments</h3>
-
-                <% for(i=0;i < komentar.length;i++){ %>
+              <% for(i=0;i < komentar.length;i++){ %>
                 <div class="media mb-4">
                   <a href="/profile/<%= komentar[i].User.id %>">
                     <img src="<%= komentar[i].User.profile_pict %>" class="rounded-circle mr-3" style="width: 64px; height: 64px; object-fit: cover;" alt="...">
@@ -95,7 +94,7 @@
                   </div>
                 </form>
               <% } %>
-
+                <% } %>
             </section>
            
     </div>

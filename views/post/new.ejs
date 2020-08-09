@@ -2,22 +2,32 @@
 
 <%- include('../partials/navbar') %>
 
+
 <div id="body-addpost">
   <div class="row justify-content-center">
   <div class="col-10 col-md-6">
-    <h1 class="display-3 pt-5 mt-5 mb-3 text-center">Add a Post</h1>
+    <h1 class="display-4 pt-5 mt-5 mb-3 text-center text-danger">Add a Post</h1>
+    <div id="drop-area">
+      <form class="my-form">
+        <p>Upload Image</p>
+        <input type="file" id="fileElem"  accept="image/*" onchange="handleFiles(this.files)">
+        <label class="button" for="fileElem">Select File</label>
+      </form>
+      <progress id="progress-bar" max=100 value=0></progress>
+      <div id="gallery"></div>
+    </div>
     <form action="/post" method="POST">
+        <input name="image" id="image-input" type="text" class="form-control shadow-none" placeholder="url..."  required>
       <div class="form-group">
-        <label for="image-input" class="lbl">Image URL</label>
-        <input name="image" type="text" class="form-control shadow-none" placeholder="url..." id="image-input" required>
+        <label for="name-input" class="lbl">Captions</label>
+        <input name="name" type="text" placeholder="Your Captions Here..." class="form-control shadow-none" id="name-input" required>
       </div>
-      <div class="form-group">
-        <label for="name-input" class="lbl">Name</label>
-        <input name="name" type="text" placeholder="title..." class="form-control shadow-none" id="name-input" required>
-      </div>
-      <button type="submit" class="lbl my-5">Upload</button>
+      <button type="submit" class="lbl mb-5">Upload</button>
     </form>
   </div>
   </div>
 </div>
+
+<script src="js/index.js"></script>
+
 <%- include('../partials/footer') %>

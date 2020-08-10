@@ -15,9 +15,9 @@ html {
 }
 
 #drop-area {
-	border: 2px dashed #ccc;
-	border-radius: 20px;
-	width: 480px;
+	/* border: 2px dashed #ccc;
+	border-radius: 20px; */
+	width: 100%;
 	font-family: sans-serif;
 	padding: 20px;
 }
@@ -27,14 +27,13 @@ html {
 p {
 	margin-top: 0;
 }
-.my-form {
-	margin-bottom: 10px;
-}
+
 #gallery {
 	margin-top: 10px;
 }
 #gallery img {
-	width: 150px;
+	max-width: 100%;
+	max-height: 400px;
 	margin-bottom: 10px;
 	margin-right: 10px;
 	vertical-align: middle;
@@ -81,7 +80,7 @@ a:hover {
 /* items */
 
 .items {
-	margin: 5em 0 8em;
+	margin: 5em 0 12em;
 }
 
 div.item:hover #img {
@@ -314,8 +313,13 @@ footer p {
 	padding-top: 5em;
 }
 
-#body-register {
-	padding-bottom: 5em;
+#body-register,
+#body-login,
+#body-addpost,
+#body-show,
+#body-edit-post,
+#body-edit-profile {
+	padding-bottom: 10em;
 }
 
 #image-input {

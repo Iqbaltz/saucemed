@@ -21,6 +21,7 @@ var db = require('./models');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static('public'));
+app.use('/uploads', express.static('uploads'));
 app.use(methodOverride('_method'));
 app.use(flash());
 app.set('view engine', 'ejs');

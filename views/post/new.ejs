@@ -7,20 +7,24 @@
   <div class="row justify-content-center">
   <div class="col-10 col-md-6">
     <h1 class="display-4 pt-5 mt-5 mb-3 text-center text-danger">Add a Post</h1>
-    <div id="drop-area">
-      <form class="my-form">
-        <p>Upload Image</p>
-        <input type="file" id="fileElem"  accept="image/*" onchange="handleFiles(this.files)">
-        <label class="button" for="fileElem">Select File</label>
-      </form>
-      <progress id="progress-bar" max=100 value=0></progress>
-      <div id="gallery"></div>
-    </div>
-    <form action="/post" method="POST">
-        <input name="image" id="image-input" type="text" class="form-control shadow-none" placeholder="url..."  required>
+
+    <form action="/post" method="POST" enctype="multipart/form-data">
+      <!-- <input name="image" id="image-input" type="text" class="form-control shadow-none" placeholder="url..."  required> -->
+      <div class="form-group">
+        <!-- <input name="image" id="inputVal" type="file"> -->
+        <!-- <input name="image" id="image" type="file" accept="image/png,image/jpeg" placeholder="choose your file"  id="name-input" required> -->
+        <div id="drop-area">
+            <p>Upload Image</p>
+            <input type="file" id="fileElem" name="image"  accept="image/png,image/jpeg" onchange="handleFiles(this.files)">
+            <label class="button" for="fileElem">Select File</label>
+          <progress id="progress-bar" max=100 value=0></progress>
+          <div id="gallery"></div>
+        </div>
+      </div>
       <div class="form-group">
         <label for="name-input" class="lbl">Captions</label>
-        <input name="name" type="text" placeholder="Your Captions Here..." class="form-control shadow-none" id="name-input" required>
+        <textarea name="name" id="name-input" rows="5" class="form-control shadow-none" required></textarea>
+        <!-- <input name="name" type="text" placeholder="Your Captions Here..." class="form-control shadow-none" id="name-input" required> -->
       </div>
       <button type="submit" class="lbl mb-5">Upload</button>
     </form>

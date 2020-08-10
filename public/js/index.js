@@ -59,16 +59,16 @@ function updateProgress(fileNumber, percent) {
 function handleFiles(files) {
 	files = [ ...files ];
 	initializeProgress(files.length);
-	files.forEach(uploadFile);
 	files.forEach(previewFile);
 }
 
-function previewFile(file) {
+function previewFile(file, i) {
 	let reader = new FileReader();
 	reader.readAsDataURL(file);
 	reader.onloadend = function() {
 		document.getElementById('gallery').innerHTML = `<img src="${reader.result}" />`;
 	};
+	updateProgress(i, 100);
 }
 
 const imgInput = document.getElementById('image-input');

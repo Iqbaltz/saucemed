@@ -1,13 +1,40 @@
-var express = require('express');
-var router = express.Router();
-var db = require('../models');
-var middleware = require('../config/middleware');
+const express = require('express');
+const router = express.Router();
+const db = require('../models');
+const middleware = require('../config/middleware');
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+	destination: function(req, file, cb) {
+		cb(null, './uploads/');
+	},
+	filename: function(req, file, cb) {
+		cb(null, new Date().toISOString().replace(/:/g, '-') + file.originalname);
+	}
+});
+
+const fileFilter = (req, file, cb) => {
+	if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+		cb(null, true);
+	} else {
+		cb(null, false);
+	}
+};
+
+const upload = multer({
+	storage: storage,
+	limits: {
+		fileSize: 1024 * 1024 * 2
+	},
+	fileFilter: fileFilter
+});
 
 // post route for post new image
-router.post('/', middleware.isLoggedIn, function(req, res) {
+router.post('/', [ upload.single('image'), middleware.isLoggedIn ], function(req, res) {
+	console.log(req.file.path);
 	db.Post
 		.create({
-			images: req.body.image,
+			images: req.file.path,
 			name: req.body.name,
 			user_id: req.user.id
 		})

@@ -24,7 +24,7 @@ const fileFilter = (req, file, cb) => {
 const upload = multer({
 	storage: storage,
 	limits: {
-		fileSize: 1024 * 1024 * 2
+		fileSize: 1024 * 1024 * 5
 	},
 	fileFilter: fileFilter
 });
@@ -95,7 +95,6 @@ router.put('/:id', middleware.checkPostOwnership, function(req, res) {
 			if (post) {
 				post
 					.update({
-						images: req.body.image,
 						name: req.body.name
 					})
 					.then(function(post) {

@@ -244,7 +244,7 @@ button.lbl:active {
 	width: 100%;
 	border-top-left-radius: calc(.25rem - 1px);
 	border-top-right-radius: calc(.25rem - 1px);
-	height: 613px;
+	max-height: 560px;
 	object-fit: contain;
 	background-color: rgb(240, 240, 240);
 }

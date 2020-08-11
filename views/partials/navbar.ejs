@@ -9,11 +9,11 @@
         </button>
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto ml-2">
+          <ul class="navbar-nav mr-auto ml-lg-2">
             <li class="nav-item">
               <a class="nav-link" href="/">Home</a>
             </li>
-            <li class="nav-item d-none d-md-block">
+            <li class="nav-item d-none d-lg-block">
               <a class="nav-link">|</a>
             </li>
             <li class="nav-item">
@@ -25,7 +25,7 @@
          
                <% if(currentUser){ %>
                 <li class="nav-item">
-                  <a class="nav-link" href="/profile/<%= currentUser.id %>"><%= currentUser.username %></a>
+                  <a class="nav-link" href="/profile/<%= currentUser.id %>"><strong><%= currentUser.username %></strong></a>
                 </li>
                 <li class="nav-item col d-none d-lg-block">
                   <a class="nav-link">|</a>

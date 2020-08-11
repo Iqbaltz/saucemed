@@ -15,7 +15,7 @@
         <!-- <input name="image" id="image" type="file" accept="image/png,image/jpeg" placeholder="choose your file"  id="name-input" required> -->
         <div id="drop-area">
             <p>Upload Image</p>
-            <input type="file" id="fileElem" name="image"  accept="image/png,image/jpeg" onchange="handleFiles(this.files)">
+            <input type="file" id="fileElem" name="image"  accept="image/png,image/jpeg" onchange="handleFiles(this.files)" required>
             <label class="button" for="fileElem">Select File</label>
           <progress id="progress-bar" max=100 value=0></progress>
           <div id="gallery"></div>

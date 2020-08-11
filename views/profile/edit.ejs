@@ -6,10 +6,18 @@
 
 <div class="row justify-content-center mt-5 mb-5" id="body-edit-profile">
     <div class="col-10 col-md-6">
-      <form action="/profile/<%= user.id %>?_method=PUT" method="POST">
+      <form action="/profile/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
             <div class="form-group">
-              <label for="image" class="lbl">Profile Image URL</label>
-              <input name="image" type="text" class="form-control shadow-none" placeholder="url..." id="image" value="<%= user.profile_pict %>" required>
+              <label for="image" class="lbl">Profile Image</label>
+              <div id="drop-area">
+                <p>Upload Image</p>
+                <input type="file" id="fileElem" name="image"  accept="image/png,image/jpeg" onchange="handleFiles(this.files)">
+                <label class="button" for="fileElem">Select File</label>
+              <progress id="progress-bar" max=100 value=0></progress>
+              <div id="gallery" class="edit-prev">
+                <img src="<%= user.profile_pict %>" alt="profilePict">
+              </div>
+            </div>
             </div>
             <div class="form-group">
                 <label for="fname">First Name</label>
@@ -25,6 +33,7 @@
 </div>
 
 
+<script src="js/index.js"></script>
 
 
 <%- include('../partials/footer') %>

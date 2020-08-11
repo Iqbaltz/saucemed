@@ -31,7 +31,6 @@ const upload = multer({
 
 // post route for post new image
 router.post('/', [ upload.single('image'), middleware.isLoggedIn ], function(req, res) {
-	console.log(req.file.path);
 	db.Post
 		.create({
 			images: req.file.path,

@@ -38,6 +38,11 @@ p {
 	margin-right: 10px;
 	vertical-align: middle;
 }
+
+.edit-prev img {
+	max-height: 200px !important;
+}
+
 .button {
 	display: inline-block;
 	padding: 10px;

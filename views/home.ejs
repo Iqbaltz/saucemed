@@ -10,7 +10,7 @@
             <div class="item card my-3">
               <div class="card-body card-head">
                 <a href="profile/<%=post[i].User.id%>" class="user-info">
-                  <img src="<%=post[i].User.profile_pict%>" class="rounded-circl avatar-post" alt="">
+                  <img src="<%=post[i].User.profile_pict%>" class="rounded-circle avatar-post" alt="">
                   <h5 class="card-title username-post"><%=post[i].User.username%></h5>
                 </a>
                 <div class="dropdown">
@@ -30,9 +30,13 @@
                 </div>
               </div>
               <img src="<%=post[i].images%>" data-toggle="modal" data-target="#myModal<%=i%>" id="img" class="card-img-middle" alt="...">
-                <div class="card-body card-foot">
-                  <p class="card-text"><%=post[i].name%></p>
-                  <a href="/post/<%=post[i].id%>"><i class="fas fa-external-link-alt"></i></a>
+                <div class="card-body">
+                  <div class="card-foot">
+                    <p class="card-text"><%=post[i].name %></p>
+                    <p class="card-text"><%=post[i].id %></p>
+                    <a href="/post/<%=post[i].id%>"><i class="fas fa-external-link-alt"></i></a>
+                  </div>
+                  <small class="card-text text-secondary"><%=post[i].createdAt.toTimeString().slice(0,5)%>, <%=post[i].createdAt.toDateString()%></small>
                 </div>
             </div>
             <div id="myModal<%=i%>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -55,7 +59,7 @@
                   </div>
                   <div class="modal-footer bg-light">
                     <form id="delete-form" class="d-inline" action="/post/<%= post[i].id %>?_method=DELETE" method="POST">
-                      <button class="btn btn-xs btn-danger">Delete</button>
+                      <button type="submit" class="btn btn-xs btn-danger">Delete</button>
                     </form>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                   </div>

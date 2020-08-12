@@ -9,10 +9,10 @@
               <img src="<%=post.images%>" class="card-img-top img-post" alt="...">
               <div class="card-body">
                 <p class="card-text"><%=post.name%></p>
-                <p class="card-text"><small class="text-muted"><%=post.createdAt.toString().split('GMT')[0]%></small></p>
+                <p class="card-text"><small class="text-muted"><%=post.createdAt.toTimeString().slice(0,5)%>, <%=post.createdAt.toDateString()%></small></p>
                 <p class="card-text">
                   <a href="/profile/<%= post.User.id %>">
-                  <small class="text-muted"><i><%= post.User.username %></i></small>
+                  <strong class="text-muted"><i><%= post.User.username %></i></strong>
                   </a>
                 </p>
                 

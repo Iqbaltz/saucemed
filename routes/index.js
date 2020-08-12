@@ -10,7 +10,7 @@ router.get('/', function(req, res) {
 			order: [ [ 'id', 'DESC' ] ]
 		})
 		.then(function(posts) {
-			res.render('landing', { post: posts });
+			res.render('home', { post: posts });
 		});
 });
 

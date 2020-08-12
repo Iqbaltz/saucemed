@@ -30,14 +30,15 @@
                 </div>
               </div>
               <img src="<%=post[i].images%>" data-toggle="modal" data-target="#myModal<%=i%>" id="img" class="card-img-middle" alt="...">
-                <div class="card-body">
-                  <div class="card-foot">
-                    <p class="card-text"><%=post[i].name %></p>
-                    <p class="card-text"><%=post[i].id %></p>
-                    <a href="/post/<%=post[i].id%>"><i class="fas fa-external-link-alt"></i></a>
+              <a href="/post/<%=post[i].id%>" class='card-bottom'>
+                  <div class="card-body">
+                    <div class="card-foot">
+                      <p class="card-text"><%=post[i].name %></p>
+                      <i class="fas fa-external-link-alt goto-icon"></i>
+                    </div>
+                    <small class="card-text text-secondary"><%=post[i].createdAt.toTimeString().slice(0,5)%>, <%=post[i].createdAt.toDateString()%></small>
                   </div>
-                  <small class="card-text text-secondary"><%=post[i].createdAt.toTimeString().slice(0,5)%>, <%=post[i].createdAt.toDateString()%></small>
-                </div>
+              </a>
             </div>
             <div id="myModal<%=i%>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered">

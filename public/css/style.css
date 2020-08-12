@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-family: 'Montserrat', sans-serif;
 }
 
 body,
@@ -12,6 +15,16 @@ html {
 
 .container {
 	max-width: 800px;
+}
+
+.text-accent {
+	color: #ff9b38;
+}
+
+/* navbar */
+
+.navbar {
+	background-color: #ff9b38;
 }
 
 #drop-area {
@@ -198,7 +211,7 @@ button.lbl {
 	font-weight: 100;
 	font-size: 1.5em;
 	color: white;
-	background-color: rgb(255, 61, 61);
+	background-color: #ff9b38;
 	padding: 15px 80px;
 	border-radius: 15px;
 	border: 0;
@@ -209,10 +222,10 @@ button.lbl {
 	transition: background 0.3s;
 }
 button.lbl:hover {
-	background-color: rgb(221, 50, 50);
+	background-color: #ff9b38;
 }
 button.lbl:active {
-	background-color: rgb(255, 61, 61);
+	background-color: #fcad5e;
 }
 
 /* show item */
@@ -223,6 +236,10 @@ button.lbl:active {
 
 .card-show {
 	margin-top: 5em;
+}
+
+.card-bottom:hover .goto-icon {
+	color: #ff9b38;
 }
 
 .card-head,
@@ -256,12 +273,12 @@ button.lbl:active {
 	object-fit: contain;
 	background-color: rgb(240, 240, 240);
 }
-
 /* Footer section */
 footer {
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
+	background-color: #ff9b38;
 	color: #fff;
 	position: absolute;
 	bottom: 0;
@@ -306,14 +323,6 @@ footer p {
 }
 
 /* Extras*/
-
-/* img user di page profile */
-
-.img-user {
-	height: 200px;
-	object-fit: cover;
-	object-position: center;
-}
 
 /* body bg */
 

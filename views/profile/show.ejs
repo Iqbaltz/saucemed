@@ -21,7 +21,7 @@
           </div>
           <hr>
           <div class="row justify-content-center align-items-center posts">
-              <% if(post){ %>
+              <% if(post.length){ %>
                 <% for(i= post.length-1; i>=0 ;i--){ %>
                   <div class="card">
                     <img src="<%=post[i].images%>" class="card-img-top img-user" alt="...">
@@ -32,7 +32,10 @@
                     </div>
                   </div>
                 <% } %>
-              <% } %>
+              <% } else{ %>
+                  <h2 class="text-nopost">
+                    No posts yet</h2>
+                <% } %>
             </div>
         </div>
     </div>

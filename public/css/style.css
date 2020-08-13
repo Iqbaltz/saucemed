@@ -117,61 +117,6 @@ div.item * {
 	vertical-align: top;
 }
 
-.detil {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	padding: 0 0 5px 5px;
-	width: 100%;
-	background-color: rgba(126, 126, 126, 0.5);
-	opacity: 0;
-}
-
-.detil img {
-	width: 20px;
-	height: 20px;
-	margin-right: 5px;
-}
-.detil p {
-	color: azure;
-	display: inline;
-}
-
-.detil a i {
-	color: rgb(197, 197, 197);
-	float: right;
-	margin: 5px 5px 0 0;
-	transition: all ease-in-out 0.1s;
-}
-
-.detil a i:hover {
-	color: rgb(255, 255, 255);
-}
-
-div.item:hover .detil {
-	opacity: 1;
-}
-
-@media (max-width: 800px) {
-	.item {
-		width: 100%;
-		min-height: 400px;
-		margin-bottom: 20px;
-	}
-	.item img {
-		width: 100%;
-		height: 100%;
-	}
-	.detil {
-		opacity: 1;
-	}
-	.detil img {
-		width: 20px;
-		height: 20px;
-		margin-right: 5px;
-	}
-}
-
 /* modal */
 
 div.modal-content {
@@ -250,8 +195,8 @@ button.lbl:active {
 }
 
 .avatar-post {
-	height: 40px;
-	width: 40px;
+	height: 40px !important;
+	width: 40px !important;
 	object-fit: cover;
 	object-position: center;
 }
@@ -262,7 +207,7 @@ button.lbl:active {
 }
 
 .menu-post {
-	height: 24px;
+	height: 24px !important;
 }
 
 .card-img-top.img-post {

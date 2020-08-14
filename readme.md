@@ -2,7 +2,7 @@
 
 You have to adjust the database configuration of this application according to your database configuration.
 Configuration settings are in config/config.json
-/n
+<br />
 after configuring the database, create a new database named 'saucemed'
 
 **how to run:**

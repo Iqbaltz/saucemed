@@ -97,7 +97,7 @@ router.put('/:id', middleware.checkPostOwnership, function(req, res) {
 						name: req.body.name
 					})
 					.then(function(post) {
-						res.redirect('/post/' + req.params.id);
+						res.redirect('/');
 					})
 					.catch(function(err) {
 						console.log(err);

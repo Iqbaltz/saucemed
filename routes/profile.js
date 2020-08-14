@@ -36,6 +36,7 @@ router.get('/:id', middleware.isLoggedIn, function(req, res) {
 			where: { id: req.params.id }
 		})
 		.then(function(user) {
+			res.locals.currentUser = req.user;
 			var posts = user.Posts;
 			res.render('profile/show', { post: posts, user: user });
 		});

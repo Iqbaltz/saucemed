@@ -23,8 +23,19 @@ html {
 
 /* navbar */
 
+.navbar-nav {
+	align-items: center;
+}
+
 .navbar {
 	background-color: #ff9b38;
+}
+
+.nav-user-img {
+	width: 24px;
+	height: 24px;
+	object-position: center;
+	object-fit: cover;
 }
 
 #drop-area {

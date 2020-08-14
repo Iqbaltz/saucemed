@@ -25,7 +25,9 @@
          
                <% if(currentUser){ %>
                 <li class="nav-item">
-                  <a class="nav-link" href="/profile/<%= currentUser.id %>"><strong><%= currentUser.username %></strong></a>
+                  <a class="nav-link" href="/profile/<%= currentUser.id %>">
+                    <img src="<%= currentUser.profile_pict %>" alt="<%= currentUser.username %>" class="rounded-circle nav-user-img">
+                    <strong class="ml-1"><%= currentUser.username %></strong></a>
                 </li>
                 <li class="nav-item col d-none d-lg-block">
                   <a class="nav-link">|</a>
